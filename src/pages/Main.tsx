@@ -1,4 +1,3 @@
-import React from "react";
 import useRepositoryInfoQuery from "../hooks/useRepositoryInfoQuery";
 import useCommitsQuery from "../hooks/useCommitsQuery";
 import { GeneralRepoInfoCard } from "../components/Repository/RepoInfoCards";

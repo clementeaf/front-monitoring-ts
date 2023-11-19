@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import useAppRoutes from "../hooks/useAppRoutes";
 import { Route, Routes, useLocation } from "react-router-dom";
 import NotFound from "./NotFound";
 import CommitDetail from "./CommitDetail";
 import RepositoryInfo from "./RepositoryInfo";
 import GlobalProvider from "../context/GlobalContext";
-import TopNav from "../components/Home/TopNav";
+import { pages } from "../config";
+import { NavLink } from "react-router-dom";
 
 interface ContextMapping {
   [key: string]: "Repository" | "Commits";
@@ -26,13 +27,24 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-w-screen min-h-screen items-center bg-gray-200/70 p-6 gap-6">
-      <GlobalProvider
-        states={contextName ? ["Commits"] : ["Repository"]}
-      >
+      <GlobalProvider states={contextName ? ["Commits"] : ["Repository"]}>
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex justify-between w-full p-4 bg-white rounded-md shadow-md">
-            <TopNav />
-            <p>MonitoringApp</p>
+          <div className="flex justify-center items-center w-full p-4 bg-white rounded-md shadow-md">
+            <div className="flex w-[250px] items-center justify-between">
+            {pages.map(({ id, path, name }) => (
+              <NavLink key={id} to={path}>
+                {({ isActive }) => (
+                  <p
+                    className={`${
+                      isActive ? "text-black" : "text-black/50"
+                    } font-light w-full py-2 capitalize`}
+                  >
+                    {name}
+                  </p>
+                )}
+              </NavLink>
+            ))}
+            </div>
           </div>
           <div className="flex flex-col p-4 bg-white rounded-md shadow-md  justify-center ">
             <Routes>
