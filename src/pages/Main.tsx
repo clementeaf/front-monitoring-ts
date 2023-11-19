@@ -18,8 +18,8 @@ export default function Main() {
 
   return (
     <div className="flex flex-col gap-5 items-center p-4">
+      <h1>Repository Info</h1>
       <div className="flex flex-col w-full items-start justify-between p-4 border border-black/30 rounded-md gap-2">
-        <h1>Repository Info</h1>
         {isError ? (
           <p>Error: There was a problem loading the information.</p>
         ) : isLoading ? (

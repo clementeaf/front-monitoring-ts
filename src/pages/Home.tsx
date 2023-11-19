@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import CommitDetail from "./CommitDetail";
 import RepositoryInfo from "./RepositoryInfo";
 import GlobalProvider from "../context/GlobalContext";
+import TopNav from "../components/Home/TopNav";
 
 interface ContextMapping {
   [key: string]: "Repository" | "Commits";
@@ -29,8 +30,9 @@ export default function Home() {
         states={contextName ? ["Commits"] : ["Repository"]}
       >
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex justify-center w-full p-4 bg-white rounded-md shadow-md">
-            MonitoringApp
+          <div className="flex justify-between w-full p-4 bg-white rounded-md shadow-md">
+            <TopNav />
+            <p>MonitoringApp</p>
           </div>
           <div className="flex flex-col p-4 bg-white rounded-md shadow-md  justify-center ">
             <Routes>
