@@ -5,7 +5,7 @@ import { RepoInfo } from "../services/interfaces.repository";
 /**
  * Represents the response structure for fetching repository information.
  */
-interface FetchRepositoryInfoResponse {
+export interface FetchRepositoryInfoResponse {
   /**
    * The data containing repository information.
    */

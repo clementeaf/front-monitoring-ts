@@ -5,7 +5,7 @@ import { Commit } from "../services/interfaces.commits";
 /**
  * Represents the response structure for fetching commits array information.
  */
-interface FetchCommitsResponse {
+export interface FetchCommitsResponse {
   /**
    * The data containing commits array information.
    */

@@ -15,9 +15,6 @@ export default function Main() {
     isError: commitsError,
     data: commitsArray
   } = useCommitsQuery();
-  console.log(
-    commitsArray && commitsArray.map(({ sha, commit }) => ({ sha, commit }))
-  );
 
   return (
     <div className="flex flex-col gap-5 items-center p-4">
