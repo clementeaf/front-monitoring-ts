@@ -2,8 +2,18 @@
  * Interface representing the structure of repository information.
  */
 export interface RepoInfo {
-    name: string;
-  }
+  name: string;
+  owner: {
+    login: string;
+    url: string;
+  };
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  language: string;
+  visibility: string;
+  default_branch: string;
+}
   
   /**
    * Interface representing a successful response structure.

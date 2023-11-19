@@ -4,7 +4,7 @@ import axios from "axios";
 import { commonConfig } from "../config";
 import { GET_COMMITS_API, GET_REPO_INFO_API } from "./endPoints";
 import { FetchRepositoryInfoResponse, RepoInfo, SuccessRepoResponse } from "./interfaces.repository";
-import { Commit, FetchCommitsResponse, SuccessCommitResponse } from "./interfaces.commits";
+import { FetchCommitsResponse, SuccessCommitResponse } from "./interfaces.commits";
 
 /**
  * Asynchronous function for fetching repository information.
@@ -18,9 +18,7 @@ export async function fetchRepositoryInfo(): Promise<FetchRepositoryInfoResponse
     const response = await axios.get(GET_REPO_INFO_API, commonConfig);
 
     // Create a success response object
-    const successResponse: SuccessRepoResponse = {
-      data: response.data as RepoInfo
-    };
+    const successResponse: SuccessRepoResponse = response?.data;
 
     return successResponse;
   } catch (error) {
@@ -40,10 +38,7 @@ export async function fetchCommits(): Promise<FetchCommitsResponse> {
     // Perform the API request to retrieve commit information
     const response = await axios.get(GET_COMMITS_API, commonConfig);
 
-    // Create a success response object
-    const successResponse: SuccessCommitResponse = {
-      data: response.data as Commit[],
-    };
+    const successResponse: SuccessCommitResponse = response?.data;
 
     return successResponse;
   } catch (error) {
