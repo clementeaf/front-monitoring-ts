@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  app:
+    image: monitoring-ts-docker:local
+    container_name: monitoring-ts-docker
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/app
