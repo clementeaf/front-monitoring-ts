@@ -7,7 +7,8 @@ export interface CommitAuthor {
 export interface Commit {
   sha: string | null;
   commit: {
-    author: CommitAuthor | null;
+    message: { author: CommitAuthor | null; };
+    author: CommitAuthor | null | string;
   };
 }
 

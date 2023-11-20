@@ -1,4 +1,4 @@
-import React from "react";
+import { CommitAuthor } from "../../services/interfaces.commits";
 
 interface LastCommitContent {
   message: string;
@@ -9,8 +9,8 @@ export interface CommitContent {
   sha: string;
   email: string;
   name: string;
-  message: string;
-  date: string;
+  message: CommitAuthor | null;
+  date: string | undefined;
 }
 
 export function LastCommitContent({message, date}: LastCommitContent) {

@@ -1,9 +1,8 @@
-import { useState } from "react";
-
 interface GeneralRepoInfoCardProps {
   name: string;
   login: string;
   language: string;
+  close: () => void;
 }
 
 type DetailRepoInfoCardProps = {
@@ -13,9 +12,9 @@ type DetailRepoInfoCardProps = {
 export function GeneralRepoInfoCard({
   name,
   login,
-  language
+  language,
+  close
 }: GeneralRepoInfoCardProps) {
-  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <div className="flex flex-col w-full items-center gap-4 sm:gap-4">
@@ -27,11 +26,10 @@ export function GeneralRepoInfoCard({
       <button
         type="button"
         className="px-4 py-2 bg-blue-500 text-white rounded-md capitalize"
-        onClick={() => setOpen(!open)}
+        onClick={close}
       >
         repository details
       </button>
-      {open && <DetailRepoInfoCard close={() => setOpen(!open)} />}
     </div>
   );
 }
