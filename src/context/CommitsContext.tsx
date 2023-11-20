@@ -3,7 +3,7 @@ import { createContext, useContext, ReactNode } from 'react';
 import useCommitsQuery from '../hooks/useCommitsQuery';
 import { Commit } from '../services/interfaces.commits';
 
-interface CommitsInfoContextProps {
+export interface CommitsInfoContextProps {
   commitsInfoQuery: {
     data?: Commit[];
     isLoading: boolean;
@@ -29,7 +29,7 @@ export function CommitsInfoProvider({ children }: CommitsInfoProviderProps) {
   const { data, isLoading, isError } = useCommitsQuery();
 
   const commitsInfoQuery = {
-    data: data?.data || [],
+    data: data || [],
     isLoading,
     isError,
   };

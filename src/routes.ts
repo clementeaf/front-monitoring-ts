@@ -15,7 +15,6 @@ export interface Route {
 
 // Lazy-loaded components for each route
 const Main = lazy(() => import("./pages/Main"));
-const RepositoryInfo = lazy(() => import("./pages/RepositoryInfo"));
 const AllCommits = lazy(() => import("./pages/AllCommits"));
 
 /**
@@ -29,19 +28,6 @@ export const MAIN_ROUTE: Route = {
   isInSideNav: false,
   name: "Home",
   description: "Home"
-};
-
-/**
- * Repository Info route configuration.
- */
-export const REPOSITORY_INFO_ROUTE: Route = {
-  id: "repository-info-route",
-  path: "/repositoryInfo",
-  component: RepositoryInfo,
-  isIndex: false,
-  isInSideNav: true,
-  name: "Repository",
-  description: "Repository Info"
 };
 
 /**

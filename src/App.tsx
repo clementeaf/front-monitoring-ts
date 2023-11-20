@@ -1,5 +1,5 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
-import Home from './pages/Home';
+import { QueryClient, QueryClientProvider } from "react-query";
+import Home from "./pages/Home";
 
 /**
  * Query client instance with default options.
@@ -9,9 +9,9 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       retry: false,
-      staleTime: 1000 * 60 * 5,
-    },
-  },
+      staleTime: 1000 * 60 * 5
+    }
+  }
 });
 
 /**
@@ -22,7 +22,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Home />
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;

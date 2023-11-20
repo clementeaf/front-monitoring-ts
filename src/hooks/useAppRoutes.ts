@@ -1,7 +1,6 @@
 import {
   ALL_COMMITS_ROUTE,
   MAIN_ROUTE,
-  REPOSITORY_INFO_ROUTE,
   Route
 } from "../routes";
 
@@ -17,7 +16,6 @@ interface RouteConfig {
  */
 const routes: RouteConfig = {
   MAIN_ROUTE,
-  REPOSITORY_INFO_ROUTE,
   ALL_COMMITS_ROUTE
 };
 
