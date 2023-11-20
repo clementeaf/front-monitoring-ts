@@ -3,7 +3,7 @@
 import axios from "axios";
 import { commonConfig } from "../config";
 import { GET_COMMITS_API, GET_REPO_INFO_API } from "./endPoints";
-import { FetchRepositoryInfoResponse, RepoInfo, SuccessRepoResponse } from "./interfaces.repository";
+import { FetchRepositoryInfoResponse, SuccessRepoResponse } from "./interfaces.repository";
 import { FetchCommitsResponse, SuccessCommitResponse } from "./interfaces.commits";
 
 /**
