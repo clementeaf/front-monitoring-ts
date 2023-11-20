@@ -12,6 +12,14 @@ export interface Commit {
   };
 }
 
+export interface Commit {
+  sha: string;
+  commit?: {
+    message: string;
+    author?: CommitAuthor | null;
+  };
+}
+
 // Define the success response structure
 export interface SuccessCommitResponse {
   data: Commit[] | null;

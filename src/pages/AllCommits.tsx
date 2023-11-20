@@ -1,9 +1,12 @@
 import { useCommitsInfoStore } from "../context/CommitsContext";
 import SimplePagination from "../components/Commits/SimplePagination";
+import { SuccessCommitResponse } from "../services/interfaces.commits";
 
 export default function AllCommits() {
   const { commitsInfoQuery } = useCommitsInfoStore();
   const { isLoading, isError, data } = commitsInfoQuery;
+
+  const commitData = data as SuccessCommitResponse | undefined;
 
   return (
     <>
@@ -12,7 +15,7 @@ export default function AllCommits() {
       ) : isLoading ? (
         <p>Loading the data</p>
       ) : (
-        <SimplePagination items={data} itemsPerPage={2} />
+        <SimplePagination items={commitData?.data ?? []} itemsPerPage={2} />
       )}
     </>
   );

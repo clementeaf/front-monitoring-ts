@@ -1,7 +1,5 @@
-import { CommitAuthor } from "../../services/interfaces.commits";
-
 interface LastCommitContent {
-  message: string;
+  message?: string;
   date: string;
 }
 

@@ -1,4 +1,4 @@
-// src/components/SimplePagination.tsx
+
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Commit } from "../../services/interfaces.commits";
@@ -13,9 +13,11 @@ const SimplePagination: React.FC<SimplePaginationProps> = ({
   items,
   itemsPerPage
 }) => {
+  const validItems = Array.isArray(items) ? items : [];
+
   const [currentPage, setCurrentPage] = useState(0);
 
-  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const totalPages = Math.ceil(validItems.length / itemsPerPage);
 
   const handlePageChange = (selectedPage: { selected: number }) => {
     setCurrentPage(selectedPage.selected);
@@ -23,7 +25,7 @@ const SimplePagination: React.FC<SimplePaginationProps> = ({
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentItems = items.slice(startIndex, endIndex);
+  const currentItems = validItems.slice(startIndex, endIndex);
 
   return (
     <div className="max-h-[750px] overflow-y-auto">
