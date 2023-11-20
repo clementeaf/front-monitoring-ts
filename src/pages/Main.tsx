@@ -1,6 +1,9 @@
 import useRepositoryInfoQuery from "../hooks/useRepositoryInfoQuery";
 import useCommitsQuery from "../hooks/useCommitsQuery";
-import { DetailRepoInfoCard, GeneralRepoInfoCard } from "../components/Repository/RepoInfoCards";
+import {
+  DetailRepoInfoCard,
+  GeneralRepoInfoCard
+} from "../components/Repository/RepoInfoCards";
 import { parseDate } from "../utils";
 import { LastCommitContent } from "../components/Commits/CommitCards";
 import { useState } from "react";
@@ -27,7 +30,7 @@ export default function Main() {
           <p>Loading ...</p>
         ) : (
           <GeneralRepoInfoCard
-          close={() => setOpen(!open)}
+            close={() => setOpen(!open)}
             name={data?.name}
             login={data?.login}
             language={data?.language}
@@ -51,7 +54,7 @@ export default function Main() {
           ))
         )}
       </div>
-      {open && <DetailRepoInfoCard close={() => setOpen(!open)}/>}
+      {open && <DetailRepoInfoCard close={() => setOpen(!open)} />}
     </div>
   );
 }

@@ -32,9 +32,9 @@ export default function useCommitsQuery(
       try {
         // Fetch commits array information using the provided service function
         const response = await fetchCommits();
-        
+
         // Check if the response is of type SuccessCommitResponse
-        if ('data' in response) {
+        if ("data" in response) {
           return { data: response.data, error: undefined };
         } else {
           // If not, assume it's already of type Commit[]

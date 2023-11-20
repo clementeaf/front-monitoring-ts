@@ -14,33 +14,35 @@ export interface RepoInfo {
   visibility: string;
   default_branch: string;
 }
-  
-  /**
-   * Interface representing a successful response structure.
-   */
+
+/**
+ * Interface representing a successful response structure.
+ */
 export interface SuccessRepoResponse {
-    /**
-     * The data containing repository information.
-     */
-    data: RepoInfo;
-  }
-  
   /**
-   * Interface representing an error response structure.
+   * The data containing repository information.
    */
- export interface ErrorRepoResponse {
-    /**
-     * The HTTP status code indicating the type of error.
-     */
-    status: number;
-  
-    /**
-     * The error details, which may be of any type.
-     */
-    error: never;
-  }
-  
+  data: RepoInfo;
+}
+
+/**
+ * Interface representing an error response structure.
+ */
+export interface ErrorRepoResponse {
   /**
-   * Union type for the complete response, either a success or an error.
+   * The HTTP status code indicating the type of error.
    */
-  export type FetchRepositoryInfoResponse = SuccessRepoResponse | ErrorRepoResponse;
+  status: number;
+
+  /**
+   * The error details, which may be of any type.
+   */
+  error: never;
+}
+
+/**
+ * Union type for the complete response, either a success or an error.
+ */
+export type FetchRepositoryInfoResponse =
+  | SuccessRepoResponse
+  | ErrorRepoResponse;

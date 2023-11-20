@@ -28,16 +28,16 @@ const SimplePagination: React.FC<SimplePaginationProps> = ({
   return (
     <div className="max-h-[750px] overflow-y-auto">
       <div className="flex flex-col gap-8">
-      {currentItems.map(({ sha, commit }) => (
-        <CommitCard
-          key={sha}
-          sha={sha ?? "No Sha"}
-          message={commit?.message ?? "No Message"}
-          email={commit?.author?.email ?? "No Email"}
-          date={commit?.author?.date ?? "No Date"}
-          name={commit?.author?.name ?? "No Name"}
-        />
-      ))}
+        {currentItems.map(({ sha, commit }) => (
+          <CommitCard
+            key={sha}
+            sha={sha ?? "No Sha"}
+            message={commit?.message ?? "No Message"}
+            email={commit?.author?.email ?? "No Email"}
+            date={commit?.author?.date ?? "No Date"}
+            name={commit?.author?.name ?? "No Name"}
+          />
+        ))}
       </div>
       <ReactPaginate
         pageCount={totalPages}

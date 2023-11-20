@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, ReactNode } from 'react';
-import useCommitsQuery from '../hooks/useCommitsQuery';
-import { Commit } from '../services/interfaces.commits';
+import { createContext, useContext, ReactNode } from "react";
+import useCommitsQuery from "../hooks/useCommitsQuery";
+import { Commit } from "../services/interfaces.commits";
 
 export interface CommitsInfoContextProps {
   commitsInfoQuery: {
@@ -11,12 +11,16 @@ export interface CommitsInfoContextProps {
   };
 }
 
-const CommitsInfoContext = createContext<CommitsInfoContextProps | undefined>(undefined);
+const CommitsInfoContext = createContext<CommitsInfoContextProps | undefined>(
+  undefined
+);
 
 export const useCommitsInfoStore = () => {
   const context = useContext(CommitsInfoContext);
   if (!context) {
-    throw new Error('useCommitsInfoStore must be used within a CommitsInfoProvider');
+    throw new Error(
+      "useCommitsInfoStore must be used within a CommitsInfoProvider"
+    );
   }
   return context;
 };
@@ -31,7 +35,7 @@ export function CommitsInfoProvider({ children }: CommitsInfoProviderProps) {
   const commitsInfoQuery = {
     data: data || [],
     isLoading,
-    isError,
+    isError
   };
 
   return (

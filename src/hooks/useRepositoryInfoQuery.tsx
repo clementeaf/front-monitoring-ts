@@ -42,7 +42,7 @@ export default function useRepositoryInfoQuery(
         name: data?.name ?? "No name",
         login: data?.owner?.login ?? "No Owner",
         language: data?.language ?? "No language"
-      }),
+      })
     }
   );
 }

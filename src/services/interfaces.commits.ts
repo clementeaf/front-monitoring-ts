@@ -7,7 +7,7 @@ export interface CommitAuthor {
 export interface Commit {
   sha: string | null;
   commit: {
-    message: { author: CommitAuthor | null; };
+    message: { author: CommitAuthor | null };
     author: CommitAuthor | null | string;
   };
 }
@@ -17,12 +17,10 @@ export interface SuccessCommitResponse {
   data: Commit[] | null;
 }
 
-// Define the error response structure con el valor predeterminado
 export interface ErrorCommitResponse {
   status: number;
   error: never;
-  data: Commit[]; // Puedes proporcionar un valor predeterminado para los commits en caso de error
+  data: Commit[];
 }
 
-// Union type para la respuesta completa
 export type FetchCommitsResponse = SuccessCommitResponse | ErrorCommitResponse;

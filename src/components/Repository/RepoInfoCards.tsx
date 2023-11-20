@@ -15,7 +15,6 @@ export function GeneralRepoInfoCard({
   language,
   close
 }: GeneralRepoInfoCardProps) {
-
   return (
     <div className="flex flex-col w-full items-center gap-4 sm:gap-4">
       <div className="flex flex-col items-center sm:flex-row gap-4">

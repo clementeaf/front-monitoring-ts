@@ -1,8 +1,4 @@
-import {
-  ALL_COMMITS_ROUTE,
-  MAIN_ROUTE,
-  Route
-} from "../routes";
+import { ALL_COMMITS_ROUTE, MAIN_ROUTE, Route } from "../routes";
 
 /**
  * Configuration type for individual routes.
