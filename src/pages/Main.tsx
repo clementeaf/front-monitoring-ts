@@ -1,18 +1,13 @@
 import useRepositoryInfoQuery from "../hooks/useRepositoryInfoQuery";
 import useCommitsQuery from "../hooks/useCommitsQuery";
-import {
-  DetailRepoInfoCard,
-  GeneralRepoInfoCard
-} from "../components/Repository/RepoInfoCards";
+import { GeneralRepoInfoCard } from "../components/Repository/RepoInfoCards";
 import { parseDate } from "../utils";
 import { LastCommitContent } from "../components/Commits/CommitCards";
-import { useState } from "react";
 
 /**
  * Main component displaying repository information.
  */
 export default function Main() {
-  const [open, setOpen] = useState<boolean>(false);
   const { isLoading, isError, data } = useRepositoryInfoQuery();
   const {
     isLoading: commitsLoading,
@@ -30,7 +25,6 @@ export default function Main() {
           <p>Loading ...</p>
         ) : (
           <GeneralRepoInfoCard
-            close={() => setOpen(!open)}
             name={data?.name}
             login={data?.login}
             language={data?.language}
@@ -54,7 +48,6 @@ export default function Main() {
           ))
         )}
       </div>
-      {open && <DetailRepoInfoCard close={() => setOpen(!open)} />}
     </div>
   );
 }

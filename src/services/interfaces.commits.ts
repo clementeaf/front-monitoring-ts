@@ -1,14 +1,14 @@
 export interface CommitAuthor {
-  name: string | null;
-  email: string | null;
-  date: string | null;
+  name: string;
+  email: string;
+  date: string;
 }
 
 export interface Commit {
-  sha: string | null;
-  commit: {
-    message: { author: CommitAuthor | null };
-    author: CommitAuthor | null | string;
+  sha: string;
+  commit?: {
+    message: string;
+    author?: CommitAuthor | null;
   };
 }
 

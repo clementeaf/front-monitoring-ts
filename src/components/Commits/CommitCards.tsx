@@ -7,10 +7,10 @@ interface LastCommitContent {
 
 export interface CommitContent {
   sha: string;
+  message: string;
   email: string;
+  date: string;
   name: string;
-  message: CommitAuthor | null;
-  date: string | undefined;
 }
 
 export function LastCommitContent({ message, date }: LastCommitContent) {
