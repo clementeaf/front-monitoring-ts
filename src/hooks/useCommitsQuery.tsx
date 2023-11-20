@@ -9,7 +9,7 @@ export interface FetchCommitsResponse {
   /**
    * The data containing commits array information.
    */
-  data?: Commit[];
+  data?: Commit[] | null;
 
   /**
    * An optional error in case the data retrieval fails.
@@ -28,11 +28,19 @@ export default function useCommitsQuery(
 ) {
   return useQuery<FetchCommitsResponse, unknown>(
     ["commitsQuery"],
-    async () => {
+    async (): Promise<FetchCommitsResponse> => {
       try {
         // Fetch commits array information using the provided service function
         const response = await fetchCommits();
-        return response;
+        
+        // Check if the response is of type SuccessCommitResponse
+        if ('data' in response) {
+          return { data: response.data, error: undefined };
+        } else {
+          // If not, assume it's already of type Commit[]
+          const data: Commit[] = response ?? [];
+          return { data, error: undefined };
+        }
       } catch (error) {
         // Return an object with data set to undefined and the error details
         return { data: undefined, error };

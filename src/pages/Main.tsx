@@ -39,7 +39,7 @@ export default function Main() {
           <p>Loading...</p>
         ) : (
           commitsArray &&
-          commitsArray.slice(0, 5).map(({ sha, commit }) => (
+          commitsArray?.data?.slice(0, 5).map(({ sha, commit }) => (
             <LastCommitContent
               key={sha} // Asegúrate de agregar una clave única cuando mapeas elementos en React
               message={commit && commit.message}
